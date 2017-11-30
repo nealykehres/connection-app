@@ -1,94 +1,172 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="script/javascript.js" rel="stylesheet">
+<title>Binary quiz</title>
+	<link rel="stylesheet" href="styles/main.css">
 
-  <title>Feel the Connection</title>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+
 </head>
+
 <body>
 
-<!---This code was adapted from //this code was adapted from https://codepen.io/jannypie/pen/DcHdo/ --->
 
-<div id="quizzie">
-  <h1>Which Alachua County internet provider is best suited for you?</h1>
-    <ul class="quiz-step step1 current">
-        <li class="question">
-            <div class="question-wrap">
-                <p>Do you frequently stream movies and television shows?</p>
-            </div>
-        </li>
-        <li class="quiz-answer low-value" data-quizIndex="2">
-            <div class="answer-wrap">
-                <p class="answer-text">Yes</p>
-            </div>
-        </li>
-        <li class="quiz-answer high-value" data-quizIndex="4">
-            <div class="answer-wrap">
-                <p class="answer-text">No</p>
-            </div>
-        </li>
-    </ul>
-    <ul class="quiz-step step2">
-        <li class="question">
-            <div class="question-wrap">
-                <p>How many people use the internet in your household?</p>
-            </div>
-        </li>
-        <li class="quiz-answer low-value" data-quizIndex="2">
-            <div class="answer-wrap">
-                <p class="answer-text">1-3</p>
-            </div>
-        </li>
-        <li class="quiz-answer high-value" data-quizIndex="4">
-            <div class="answer-wrap">
-                <p class="answer-text">4 or more</p>
-            </div>
-        </li>
-    </ul>
-    <ul class="quiz-step step3">
-        <li class="question">
-            <div class="question-wrap">
-                <p>What is your monthly budget for internet service?</p>
-            </div>
-        </li>
-        <li class="quiz-answer low-value" data-quizIndex="2">
-            <div class="answer-wrap">
-                <p class="answer-text">Less than $50</p>
-            </div>
-        </li>
-        <li class="quiz-answer high-value" data-quizIndex="4">
-            <div class="answer-wrap">
-                <p class="answer-text">More than $50</p>
-            </div>
-        </li>
-    </ul>
-    <ul class="quiz-step step4">
-        <li class="question">
-            <div class="question-wrap">
-                <p>Would you like to prioritize budget or internet quality?</p>
-            </div>
-        </li>
-        <li class="quiz-answer low-value" data-quizIndex="2">
-            <div class="answer-wrap">
-                <p class="answer-text">Budget</p>
-            </div>
-        </li>
-        <li class="quiz-answer high-value" data-quizIndex="4">
-            <div class="answer-wrap">
-                <p class="answer-text">Quality</p>
-            </div>
-        </li>
-    </ul>
-    <ul id="results">
-        <li class="results-inner">
-            <p>Your result is:</p>
-            <h1></h1>
-            <p class="desc"></p>
-        </li>
-    </ul>
+<!---Code adapted from https://www.dragonflycave.com/free-quiz-scripts--->
+
+<form name="quizform">
+
+<h1> Which internet provider is best suited for your needs?
+
+<h4>Do you live in a very rural or urban area?</h4>
+<ul>
+<li><label><input type="radio" name="q1" value="rural" checked> Rural</label></li>
+<li><label><input type="radio" name="q1" value="urban">Urban</label></li>
+</ul>
+
+
+<h4>What is your monthly budget for internet?</h4>
+<ul>
+<li><label><input type="radio" name="q2" value="lessthan55" checked> Less than $55</label></li>
+<li><label><input type="radio" name="q2" value="morethan55">More than $55</label></li>
+</ul>
+
+<h4>How many people use the internet in your household?</h4>
+<ul>
+<li><label><input type="radio" name="q3" value="onetothree" checked> One to three</label></li>
+<li><label><input type="radio" name="q3" value="fourormore"> Four or more</label></li>
+</ul>
+
+<h4>Do you frequently use the internet to stream movies or television shows?</h4>
+<ul>
+<li><label><input type="radio" name="q4" value="yes" checked> Yes</label></li>
+<li><label><input type="radio" name="q4" value="no"> No</label></li>
+</ul>
+
+
+
+<p><button type="submit">Submit</button></p>
+
+<div id="result_div" style="display:none;">
+<img id="result_image" alt="">
+<p id="result_text"></p>
+
+<!---
+<p>BBCode:<br>
+<textarea rows="3" cols="30" id="result_bbcode"></textarea></p>
+
+<p>HTML:<br>
+<textarea rows="3" cols="30" id="result_html"></textarea></p>
+
+--->
 </div>
+</form>
+<div class="wrapper">
+
+	<div id="att">
+	  <div class="front">
+			<div id="containter">
+	    <img src="images/att.png" alt="ATT">
+		</div>
+	  </div>
+	  <div class="back">
+	 <ul>
+		 <li>Type: DSL and, in certain areas, fiber.</li>
+		 <li>Price: $40 to $80 per month for new customers (not combined with other services). Increases by $10 after the first 12 months.</li>
+		 <li>Speed: 50 to 1,000 megabits per second.</li>
+		 <li>Data cap: After 1 terabyte used monthly, $10 charge added for every subsequent 50 gigabytes.</li>
+	 </ul>
+	  </div>
+	</div>
+
+<div id="cox">
+  <div class="front">
+		<div id="containter">
+    <img src="images/cox.png" alt="Cox">
+	</div>
+  </div>
+  <div class="back">
+		<ul>
+			<li>Type: Cable.</li>
+			<li>Price: $39.99 to $89.99 per month for new customers (not combined with other services). After 12 months, the price changes to $62.99 to $99.99 per month.</li>
+			<li>Speed: 15 to 300 megabits per second.</li>
+			<li>Data cap: After 1 terabyte used monthly, $10 charged for every subsequent 50 gigabytes.</li>
+		</ul>
+  </div>
+</div>
+
+
+	<div id="dish">
+	  <div class="front">
+			<div id="containter">
+	    <img src="images/dish.png" alt="Dish">
+		</div>
+	  </div>
+	  <div class="back">
+			<ul>
+				<li>Type: Satellite.</li>
+				<li>Price: Up to $90.59 per month (not combined with other services).</li>
+				<li>Speed: Up to 25 megabits per second.</li>
+				<li>Data cap: Up to 50 megabytes monthly of high-speed internet, and unlimited dial-up speed once those megabytes are used.</li>
+			</ul>
+	  </div>
+	</div>
+
+	<div id="gator">
+		<div class="front">
+			<div id="containter">
+			<img src="images/gator.png" alt="Gator Net">
+		</div>
+		</div>
+		<div class="back">
+			<ul>
+				<li>Note: GatorNet is only available to GatorNet communities. Click here to see a list of the 50+ apartment complexes that offer it.</li>
+				<li>Type: Fiber optic (Gainesville Regional Utilities’ internet service to apartments).</li>
+				<li>Price: Included in rent of apartment complexes for almost all Gator Net properties (seven “optional communities” don’t include the Gator Net’s price in rent, so residents wanting the service at those must pay $34.99 a month initially).</li>
+				<li>Speed: 50 to 1000 megabits per second, depending on community.</li>
+				<li>Data Cap: None.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="hotspots">
+		<div class="front">
+			<div id="containter">
+			<img src="images/hotspots.png" alt="Hotspots">
+		</div>
+		</div>
+		<div class="back">
+			<ul>
+				<li>Type: Cell phones or separate electronic devices that essentially serve as mobile Wi-Fi routers.</li>
+				<li>Price: Varies depending on provider. (Gainesville customer Cassandra Ward said she pays MetroPCS about $60 a month for 10 gigabytes, including regular cell-phone service.)</li>
+				<li>Speed: Varies.</li>
+				<li>Data Cap: Varies, but is often low.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="windstream">
+		<div class="front">
+			<div id="containter">
+			<img src="images/windstream.png" alt="Windstream">
+		</div>
+		</div>
+		<div class="back">
+			<ul>
+				<li>Type: DSL.</li>
+				<li>Price: $54.99 to $74.99 per month.</li>
+				<li>Speed: 6 to 100 megabits per second.</li>
+			</ul>
+		</div>
+	</div>
+
+</div> <!---end of wrapper--->
+
+<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+<script src="script/quiz.js"></script>
+<script src="script/main.js"></script>
+<script src="src/flip.js"></script>
+ <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
 
 </body>
 </html>

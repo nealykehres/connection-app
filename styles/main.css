@@ -1,0 +1,32 @@
+body {
+  background-color: #e9e7e7;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 250px 250px;
+  grid-row-gap: 20px;
+
+}
+
+li {
+  background-color: #fff;
+
+}
+
+#cox, #att, #dish{
+  width: 250px;
+  grid-row: 1;
+}
+.back {
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+#gator, #hotspots, #windstream{
+    width: 250px;
+  grid-row: 2;
+}
