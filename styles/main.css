@@ -1,24 +1,119 @@
 body {
   background-color: #e9e7e7;
+  font-family: 'Jaldi', sans-serif;
 }
+
+nav {
+  background: #008ea5;
+    text-align: right;
+  grid-area: nav;
+}
+
+h1 {
+  text-align: center;
+}
+
+header {
+  background: #008ea5;
+  width: 100%;
+  margin-top: 0;
+  padding: 10px 40px;
+  box-sizing: border-box;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+
+  }
+
+  #intro {
+  background:  #008ea5;
+  color: #fff;
+  padding: 10px;
+  }
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 250px 250px;
   grid-row-gap: 20px;
+  grid-template-areas:
+  "nav nav nav"
+  "feel feel feel"
+  "quiz quiz quiz"
+  ". explore ."
+  "att cox dish"
+  "gator hotspots windstream"
 
+}
+
+#Explore {
+  grid-area: explore;
+}
+
+ul {
+  list-style: none;
+  font-family: 'Jaldi', sans-serif;
+}
+
+header > li {
+  background-color: none;
+  padding: none;
 }
 
 li {
-  background-color: #fff;
+  display: inline-block;
+  background-color: #267854;
+  color: #fff;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 15px;
+  font-family: 'Jaldi', sans-serif;
+}
+
+nav ul {
+  list-style: none;
+  margin-top: 0;
+}
+
+
+input {
+    visibility:hidden;
+}
+
+label {
+    cursor: pointer;
+}
+
+input:checked + label {
+    background: #fff;
+}
+
+
+.quiz{
+  grid-area: quiz;
+}
+
+#feeltheconnection {
+  grid-area: feel;
 
 }
 
-#cox, #att, #dish{
+#cox{
+    width: 250px;
+    grid-area: cox;
+}
+
+ #att{
+     width: 250px;
+     grid-area: att;
+ }
+
+ #dish{
   width: 250px;
-  grid-row: 1;
+  grid-area: dish;
 }
+
 .back {
 }
 
@@ -26,7 +121,30 @@ img {
   display: block;
   width: 100%;
 }
-#gator, #hotspots, #windstream{
+
+#gator{
     width: 250px;
-  grid-row: 2;
+    grid-area: gator;
+}
+
+#hotspots{
+    width: 250px;
+    grid-area: hotspots;
+}
+
+ #windstream{
+    width: 250px;
+    grid-area: windstream;
+}
+
+
+@media (max-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "quiz quiz"
+    "att cox"
+    "dish windstream"
+    "hotspots gator"
+  }
 }

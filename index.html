@@ -3,17 +3,38 @@
 <head>
 <title>Binary quiz</title>
 	<link rel="stylesheet" href="styles/main.css">
+<link href="https://fonts.googleapis.com/css?family=Jaldi" rel="stylesheet">
 
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 	<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
+
+
 </head>
+
 
 <body>
 
+<div id="navbar">
+	<header>
+		<nav>
+		<ul>
+			<li><a href=".quiz">Take the Quiz</a></li>
+			<li><a href=".wrapper">Explore Your Options</a></li>
+		</ul>
+		</nav>
+	</header>
+</div>
+
+<img id="feeltheconnection" src="images/feeltheconnection.jpg" alt="Opening Image">
+
+<div id="intro">
+<p> Despite improving technology, Gainesville Regional Utilities expanding its public offering and increased competition overall, the quest for affordable, reliable, high-speed internet in Alachua County remains elusive for some. To present those in the county with the options available now, I've compiled a list of the most commonly used providers along with their prices and speeds. Take the quiz to find out what provider is best suited for your internet needs, or explore the options to learn details about each provider.
+</p>
+</div>
 
 <!---Code adapted from https://www.dragonflycave.com/free-quiz-scripts--->
-
+<div class="quiz">
 <form name="quizform">
 
 <h1> Which internet provider is best suited for your needs?
@@ -50,6 +71,7 @@
 <div id="result_div" style="display:none;">
 <img id="result_image" alt="">
 <p id="result_text"></p>
+</div>
 
 <!---
 <p>BBCode:<br>
@@ -59,6 +81,11 @@
 <textarea rows="3" cols="30" id="result_html"></textarea></p>
 
 --->
+<div id="explore">
+<h1> Explore </h1>
+	<p> Scroll your mouse over a provider to learn about it's type, price, speed and data caps. </p>
+</div>
+
 </div>
 </form>
 <div class="wrapper">
